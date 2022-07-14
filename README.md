@@ -24,3 +24,4 @@ In case you haven't already:
 
 TODO: Add links to all of the stuff referenced (bun, vscode, extension)
 
+<img width="1104" alt="image" src="https://user-images.githubusercontent.com/70333748/178888015-2a2e851e-3d83-4c02-b4e1-f14f886a317f.png">
