@@ -65,6 +65,9 @@ In case you haven't already:
 TODO: Add links to all of the stuff referenced (bun, vscode, extension)
 
 <img width="1104" alt="image" src="https://user-images.githubusercontent.com/70333748/178888015-2a2e851e-3d83-4c02-b4e1-f14f886a317f.png">
+<img width="443" alt="image" src="https://user-images.githubusercontent.com/70333748/182991594-f02d23f2-9fb4-4059-a276-3406cd404d3b.png">
+<img width="950" alt="image" src="https://user-images.githubusercontent.com/70333748/182991834-eca610b0-c498-430c-99ec-dc4233132f35.png">
+
 
 
 ## Deployment
