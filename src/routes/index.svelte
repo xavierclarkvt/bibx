@@ -7,6 +7,7 @@
 
 <h1>
 	{count}
+	THIS IS A TEST MESSAGE
 </h1>
 
 <button on:click={() => count++}>+</button>
