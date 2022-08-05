@@ -5,7 +5,7 @@
 name: Deploy Svelte site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs on publishing of a new release
   release:
     types: [published]
 
