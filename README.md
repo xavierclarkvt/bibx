@@ -1,55 +1,14 @@
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte
-
-# create a new project in my-app
-npm init svelte my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-
 # bibx
-Open-source and free bibliography generator similar to easybib.com. No ads or tracking.
+Open-source and free bibliography generator similar to easybib.com. No ads or tracking. [Try it out here!](https://bibx.io/)
 
-Written in Svelte and vite, hosted on github pages, 
+Written in [Svelte](https://svelte.dev/) and [Typescript](https://www.typescriptlang.org/), compiled by [SvelteKit](https://kit.svelte.dev/), using [Tailwind](https://tailwindcss.com/) / [DaisyUI](https://daisyui.com/) for styling and [Playwright](https://playwright.dev/) for testing. 
 
-To use, go to [bibx.io](bibx.io). 
-
-It's a little early but I really like bun so you should also have that installed (bun.sh)
+Graciously hosted by [Github Pages](https://pages.github.com/).
 
 To install this project locally, run:
 ```bash
-git clone https://github.com/xavierclarkvt/bibx.git
+curl https://bun.sh/install | bash; #install bun, unnessecary if you already have it
+git clone https://github.com/xavierclarkvt/bibx.git;
 cd bibx; bun install;
 ```
 
@@ -58,18 +17,23 @@ And to start, run:
 bun run dev;
 ```
 
-In case you haven't already:
-- you should use vscode for your editor
-  - make sure you have the svelte extension installed
-
-TODO: Add links to all of the stuff referenced (bun, vscode, extension)
-
-<img width="1104" alt="image" src="https://user-images.githubusercontent.com/70333748/178888015-2a2e851e-3d83-4c02-b4e1-f14f886a317f.png">
-<img width="443" alt="image" src="https://user-images.githubusercontent.com/70333748/182991594-f02d23f2-9fb4-4059-a276-3406cd404d3b.png">
-<img width="950" alt="image" src="https://user-images.githubusercontent.com/70333748/182991834-eca610b0-c498-430c-99ec-dc4233132f35.png">
-
-
+If you intend to submit a PR, make sure you're using VSCode and a few specific settings:
+- Install the following extensions:
+  - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  - [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+  - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+  - [Tailwind CSS Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- Add the following to your VSCode Settings (CMD/CTRL-SHIFT-P -> "Preferences: Open Default Settings (JSON)):
+```json
+  "svelte.enable-ts-plugin": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2,
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  }
+```
 
 ## Deployment
 
-To deploy the current state of main to production (Github Pages), create a new release with a new tag. TODO: Add pictures with step by step.
+To deploy the current state of main to production (Github Pages), create a new release with a new tag.
