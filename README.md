@@ -29,6 +29,7 @@ If you intend to submit a PR, make sure you're using VSCode and a few specific s
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.tabSize": 2,
+  "editor.detectIndentation": false,
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   }
