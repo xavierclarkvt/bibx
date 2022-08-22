@@ -46,6 +46,7 @@
 					<button
 						class="btn btn-sm btn-error btn-circle btn-outline text-error-content"
 						on:click={(e) => {
+							itemlist.removeItem(item);
 							console.log(e);
 							console.log('AAAAAA', item);
 						}}
