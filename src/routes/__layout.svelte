@@ -5,7 +5,7 @@
 -->
 <script lang="ts">
 	import '../app.css'; //for all tailwind classes
-	import ThemeToggle from './ThemeToggle.svelte';
+	import ThemeToggle from '$lib/ThemeToggle.svelte';
 </script>
 
 <div class="navbar bg-primary text-primary-content">
