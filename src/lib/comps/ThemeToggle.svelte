@@ -29,4 +29,12 @@
 	}
 </script>
 
+<!-- sun icon -->
+<svg class="w-5 h-5 mx-2 fill-secondary">
+	<use href="icons/sun.svg#icon" />
+</svg>
 <input id="themetoggle" type="checkbox" class="toggle" checked={themeIsDark} on:click={onClick} />
+<!-- moon icon -->
+<svg class="w-5 h-5 mx-2 fill-secondary">
+	<use href="icons/moon.svg#icon" />
+</svg>
