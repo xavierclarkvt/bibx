@@ -1,3 +1,7 @@
+<!-- 
+  The handles the creation of citations and adding them to the citationList store
+  Each citation needs to follow the Citation object
+-->
 <script type="ts">
 	import { citationlist } from '$lib/stores';
 

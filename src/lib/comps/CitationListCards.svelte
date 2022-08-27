@@ -1,4 +1,8 @@
-<!--  -->
+<!-- 
+  Rendering for the citation cards
+  All citations should go through a formatter before being displayed
+  Also contains the button to reset the citationList to empty
+-->
 <script type="ts">
 	import { citationlist } from '$lib/stores';
 </script>
