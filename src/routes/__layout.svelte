@@ -27,6 +27,8 @@
 			&bull;
 			<a href="/support" class="link">Support Further Development</a>
 			&bull;
+			<a href="https://www.github.com/xavierclarkvt/bibx" class="link">Source (Github)</a>
+			&bull;
 			<p>Live Free or Die</p>
 		</div>
 	</footer>
