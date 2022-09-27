@@ -1,0 +1,80 @@
+﻿Bibx
+Senior Project Requirements
+September 30th, 2022
+Xavier Clark <xcc10190@vsc.edu> and
+Tom Knockenhauer <tmk03150@vsc.edu>
+
+
+Introduction
+
+Bibx is an open-source bibliography generator that aims to solve the issue plaguing the other large bibliography generators on the market; profit. Students have grown accustomed to using one of a few bibliography generators to cite their papers, meaning many do not realize the decisions these companies are making in an attempt to increase profits off each visitor. Constant advertisements intended to disrupt the user’s viewing and speed of the webpage, promises of a better experience upon sign up only to realize a paid subscription is required for much of the upgrades, all while the companies have already acquired your information. Bibx aims to provide better service whilst making no upfront or behind-the-scenes attempts to grab information or money from the user.
+
+Functional Requirements
+
+Bibx U.I.:
+The user interface of Bibx was created to be as easy to follow as possible, and to prompt the user for each piece of information it needs to get their citation done. The UI is created with the intention of functioning best for the user, not functioning best for making money, so no advertisements can be found, and placements and styling choices are attempting to benefit only the user. Bibx also supports Light and Dark mode.
+
+
+Source form:
+Sources can come in many forms, and Bibx will be able to handle URLs, ISBNs, titles of articles and books, along with accepting incomplete titles and attempting to fill in gaps for those who lack access to their source material. Users will be asked to choose the form that their source uses to best utilize Bibx’s search tool.
+
+Citation Style:
+Bibx will have the ability to use any major citation style created by the user. After choosing the source of the citation, users are then prompted to choose a “citation style” that will help them receive as complete a citation as possible in any given style. Bibx can expect to handle at least the four major citation styles on launch, but that number will grow, and quickly.
+
+Citation Storage:
+After a citation is created, it will be shown in a list on the Bibx’s front page. It is saved in the user’s localstorage, meaning it has no expiration date, and can be deleted by the user whenever they would like. The data will be stored as a text file , so users can expect their citations to be saved without worry of overspending on storage. Bibx will not store or access any other files from the user.
+
+Unsuccessful Citation:
+There are two types of unsuccessful citation attempts. First would be a citation that is recognized by Bibx as being incorrect or too incomplete. For example, this could be from a user selecting “URL” while searching with an ISBN number, or performing too unspecific of a search that Bibx finds too many matches for their article title. In any case, Bibx will inform the user before with an error message informing them their search was invalid, and to reexamine their text entry and source form.
+The other case of an unsuccessful citation would be Bibx failing to find the source that the user searched for. This could be from an incorrect entry into the search bar (incorrect book title or ISBN, for example), or Bibx failing to find it in our databases. The user will then be presented with an error message explaining Bibx could not find the source and prompts the users to reexamine their entry to ensure correct usage.
+
+Bibx and Plagiarism:
+Bibx is a tool used to benefit users in citation creation, it is not an all encompassing plagiarism repellent. Users should understand that citations could appear incomplete, and that the responsibility to ensure the correct credit is given in each citation is on the user.
+
+Use Cases
+
+The user’s first citation:
+When a user first opens Bibx, they will be presented with the name of the website and an empty text-entry box that prompts them to “Enter a URL, ISBN, Article title, etc…”. After the user chooses what they would like to cite, they press enter and a window appears for the user to select their source form from a drop down menu.. A form is then created, which users are then prompted to choose their citation style, and automatically filled out with all the information Bibx could pull from our databases. Users are free to either edit the information already contained in the form, or fill in information they would like for their citation Bibx was not able to provide. After pressing continue, the user is back on the homepage, with their new citation listed below the text entry bar.
+
+Using the citation:
+Using the citation is very straightforward. Bibx stores citations in the user’s localstorage, so users can have access to previous citations each time they enter the app. To use your created citation, simply locate the chosen citation on the screen and either highlight it and utilize copy and paste, or press the “save to clipboard icon” to save it with the desired formatting.
+
+Removing Citations:
+Since Bibx utilizes localstorage, users can manually delete whatever they would like from their storage through their web browser, or can use Bibx’s reset button to clear the cache of citations.
+
+Non-Functional Requirements
+
+Platform
+Bibx is a web-based application that will work on all major web browsers. Users of Linux, MacOS, Windows, IOS or Android will be able to enjoy Bibx.
+
+Performance
+Bibx is not an intensive application on the computer. It is web-based, so Bibx requires no more resources than your web browser. With respect to internet connection, Bibx’s search should take no more than 15 seconds, and other pages should run within seconds.
+
+Security
+What kinds of attacks must your product be able to resist? What kinds of attacks will your product not necessarily protect against?
+
+User Characteristics
+Users are not expected to be above average computer users. Bibx is designed with simplicity in mind, so any experience using computer applications is enough for the user. The UI is created to help walk the user through the citation process. The expected demographic of users is students and other scholarly writers, and they should not have trouble adjusting to Bibx. Users should understand citations before relying solely on Bibx.
+
+Scale
+Bibx is hosted with the help of GitHub Pages, so the scale is currently limited to the capacity allowed for us by GitHub. GitHub Pages locks the repository file size to a maximum of one GB and documents that builds (like Bibx) have a bandwidth limit of 100 GB per month.
+
+Documentation
+1. Design Documentation. This document shall be a detailed design that describes how the various components of the system work. It may include block diagrams, schematics, or code snippets, as appropriate. The audience of this document is other developers who might want to understand and extend the system.
+2. User Documentation. This document shall describe how to install, configure, and use the system. The audience of this document is people who want to use the system without understanding the internal operation of the system.
+3. Website. A website shall be produced that describes the system. The audience of this site is potential users considering the system and current users looking for technical support. This site is hosted on GitHub by Xavier Clark: https://github.com/xavierclarkvt/bibx .
+
+Data Formats
+Bibx takes only text as input for source searching. The text could be numbers or a URL, depending on the source form selected by the user. Bibx only outputs text with some formatting.
+
+Internationalization
+Bibx is currently only designed to be used by English readers.
+
+Environment
+Bibx will work in any environment that the user’s device will. Internet access is required.
+
+Expected Enhancements
+Expect the number of citation styles and overall number of sources available to improve during the application’s lifespan.
+
+Date
+The final presentation will be on or about the last day of classes of the Spring 2023 semester. The final demonstration (if needed) and the documentation will be due at the end of finals week.
