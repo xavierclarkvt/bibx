@@ -5,6 +5,8 @@ Written in [Svelte](https://svelte.dev/) and [Typescript](https://www.typescript
 
 Graciously hosted by [Github Pages](https://pages.github.com/).
 
+*DOCS: [Requirements](docs/requirements.md), [Schedule](docs/schedule.md), [Design and Architecture](docs/design_architecture.md)*  
+
 To install this project locally, run:
 ```bash
 curl https://bun.sh/install | bash; #install bun, unnessecary if you already have it
