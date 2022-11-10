@@ -5,7 +5,15 @@ import {writable} from 'svelte/store';
 import type { Citation } from './types';
 
 function createCitationlist() {
-	const { subscribe, set, update } = writable([] as Citation[]);
+  let initArray: Citation[];
+
+  // load array from localstorage if key exists
+  if (typeof localStorage !== 'undefined' && localStorage.getItem('citationArray')) 
+    initArray = JSON.parse(localStorage.getItem('citationArray') ?? 'null') as Citation[];
+  else 
+    initArray = [] as Citation[];
+  
+	const { subscribe, set, update } = writable(initArray);
 
 	return {
 		subscribe,
@@ -38,3 +46,10 @@ function createCitationlist() {
 }
 
 export const citationlist = createCitationlist();
+
+// instantly subscribe to citationlist so that every change is pushed into localStorage
+if (typeof localStorage !== 'undefined') {
+  citationlist.subscribe(v => {
+    localStorage.setItem('citationArray', JSON.stringify(v))
+  })
+}

@@ -40,9 +40,3 @@ If you intend to submit a PR, make sure you're using VSCode and a few specific s
 ## Deployment
 
 To deploy the current state of main to production (Github Pages), create a new release with a new tag.
-
-## Documentation
-
-The [requirements
-document](https://docs.google.com/document/d/1m9iOBkTJcjZGzNcwgci2D1Ya9BA18stAgnv5KA_SMa8/edit?invite=CPjlubgE)
-can be found on Google Docs.
