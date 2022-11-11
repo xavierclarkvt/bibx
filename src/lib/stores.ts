@@ -2,7 +2,14 @@
  * The svelte store for the citationList (and other stores).
  */
 import {writable} from 'svelte/store'; 
-import type { Citation } from './types';
+import type { Citation, FormatType } from './types';
+
+// current citation format, must be one of the ones listed in FormatTypes
+export const currentCitationFormat = writable(
+  typeof localStorage !== 'undefined' ? localStorage.getItem('citationFormat') as FormatType
+  ?? 'mla' as FormatType
+  : 'mla' as FormatType
+);
 
 function createCitationlist() {
   let initArray: Citation[];
@@ -47,9 +54,15 @@ function createCitationlist() {
 
 export const citationlist = createCitationlist();
 
-// instantly subscribe to citationlist so that every change is pushed into localStorage
+// instantly subscribe to citationlist and currentCitationFormat 
+// so that every change is pushed into localStorage
 if (typeof localStorage !== 'undefined') {
   citationlist.subscribe(v => {
     localStorage.setItem('citationArray', JSON.stringify(v))
+  })
+
+  currentCitationFormat.subscribe(v => {
+    console.log("citationFormat: ", v)
+    localStorage.setItem('citationFormat', v)
   })
 }

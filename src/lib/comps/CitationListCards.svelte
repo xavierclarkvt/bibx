@@ -4,16 +4,21 @@
   Also contains the button to reset the citationList to empty
 -->
 <script type="ts">
-	import { citationlist } from '$lib/stores';
+	import { citationlist, currentCitationFormat } from '$lib/stores';
+	import { formatters } from '$lib/formatters';
 </script>
 
 {#each $citationlist as citation, i (citation.uuid)}
 	{#if i !== 0}
-		<hr class="mt-5 mx-auto w-[60vw] h-[2px] rounded border-0 bg-secondary" />
+		<hr class="mt-5 mx-auto w-[60vw] border-1 border-dashed border-neutral-content" />
 	{/if}
 	<div class="w-[60vw] mt-5 bg-base-100">
 		<div class="flex justify-between items-center">
-			<p class="inline-block align-middle">{JSON.stringify(citation)}</p>
+			<div>
+				<!-- delete containing div when you delete the <pre> -->
+				<p>{formatters[$currentCitationFormat](citation)}</p>
+				<pre class="text-xs text-gray-400">{JSON.stringify(citation)}</pre>
+			</div>
 			<button
 				class="btn btn-xs btn-error btn-circle btn-outline text-error-content"
 				on:click={() => citationlist.removeCitationByUUID(citation.uuid)}
