@@ -35,24 +35,58 @@
 			<pre class="text-xs text-gray-400">{JSON.stringify(citation)}</pre>
 		</div>
 		<div class="flex flex-nowrap">
-			<button
-				class="btn btn-xs btn-primary rounded-btn btn-outline text-error-content mr-1"
-				on:click={() => editCitation(citation)}
-			>
-				edit
-			</button>
-			<button
-				class="btn btn-xs btn-error btn-circle btn-outline text-error-content"
-				on:click={() => citationlist.removeCitationByUUID(citation.uuid)}
-			>
-				x
-			</button>
+			<!-- COPY BUTTON -->
+			<div id="copyTooltip{i}" class="tooltip" data-tip="Copy to Clipboard">
+				<button
+					class="btn btn-xs btn-ghost mr-1"
+					on:click={async () => {
+						// copy the formattedString for that citation to the clipboard
+						await navigator.clipboard.writeText(citation.formattedString);
+						// set the tooltip to reflect that copy worked
+						document.getElementById(`copyTooltip${i}`)?.setAttribute('data-tip', 'Copied!');
+						// set the tooltip back after one second
+						setTimeout(
+							() =>
+								document
+									.getElementById(`copyTooltip${i}`)
+									?.setAttribute('data-tip', 'Copy to Clipboard'),
+							1000
+						);
+					}}
+				>
+					<svg class="w-5 h-5 fill-secondary">
+						<use href="icons/copy.svg#icon" />
+					</svg>
+				</button>
+			</div>
+			<!-- EDIT BUTTON -->
+			<div id="editTooltip{i}" class="tooltip" data-tip="Edit This Citation">
+				<button class="btn btn-xs btn-ghost mr-1" on:click={() => editCitation(citation)}>
+					<svg class="w-5 h-5 fill-primary">
+						<use href="icons/pen-to-square.svg#icon" />
+					</svg>
+				</button>
+			</div>
+			<!-- DELETE BUTTON -->
+			<div id="deleteTooltip{i}" class="tooltip" data-tip="Delete This Citation">
+				<button
+					class="btn btn-xs btn-ghost"
+					on:click={() => citationlist.removeCitationByUUID(citation.uuid)}
+				>
+					<svg class="w-5 h-5 fill-error">
+						<use href="icons/circle-xmark.svg#icon" />
+					</svg>
+				</button>
+			</div>
 		</div>
 	</div>
 {/each}
-<button class="btn btn-sm btn-outline btn-error btn-wide my-5" on:click={citationlist.reset}>
-	reset
-</button>
+
+{#if $citationlist.length > 0}
+	<button class="btn btn-sm btn-outline btn-error btn-wide my-5" on:click={citationlist.reset}>
+		reset
+	</button>
+{/if}
 
 {#if showModal}
 	<CitationInfoForm
