@@ -3,7 +3,7 @@
   Each citation needs to follow the Citation object
 -->
 <script type="ts">
-	import { citationlist, currentCitationFormat } from '$lib/stores';
+	import { citationlist } from '$lib/stores';
 	import { Form, Field, Select, ErrorMessage } from 'svelte-forms-lib';
 
 	let modal: any;
@@ -36,34 +36,16 @@
 	}
 </script>
 
-<div class="flex flex-row">
-	<div>
-		<!-- This is the select for the citation format store -->
-		<select
-			name="citationStyleSelect"
-			bind:value={$currentCitationFormat}
-			class="select select-bordered mr-1"
-		>
-			<option value="mla" label="MLA" selected />
-			<option value="apa" label="APA" />
-			<option value="chicago" label="Chicago" />
-		</select>
-		<label for="citationStyleSelect" class="label">
-			<span class="label-text text-xs">Citation Style</span>
-		</label>
-	</div>
-	<!-- This is the form that initiates the citation creation process -->
-	<form on:submit|preventDefault={onMainbarSubmit} class="flex flex-row">
-		<input
-			type="text"
-			id="itemInput"
-			name="itemInput"
-			placeholder="Enter a URL, ISBN, Article Title, etc..."
-			class="input input-bordered w-[56vw] mr-1"
-		/>
-		<button class="btn btn-primary btn-square text-xl" type="submit"> → </button>
-	</form>
-</div>
+<form on:submit|preventDefault={onMainbarSubmit} class="flex flex-row">
+	<input
+		type="text"
+		id="itemInput"
+		name="itemInput"
+		placeholder="Enter a URL, ISBN, Article Title, etc..."
+		class="input input-bordered w-[56vw] mr-1"
+	/>
+	<button class="btn btn-primary btn-square text-xl" type="submit"> → </button>
+</form>
 
 <!-- Modal for more info about citation -->
 <div bind:this={modal} class="modal">

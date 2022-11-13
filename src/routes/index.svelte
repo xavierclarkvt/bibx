@@ -1,6 +1,7 @@
 <script type="ts">
 	import CitationListCards from '$lib/comps/CitationListCards.svelte';
 	import CitationCreationForm from '$lib/comps/CitationCreationForm.svelte';
+	import CitationFormatSelector from '$lib/comps/CitationFormatSelector.svelte';
 </script>
 
 <svelte:head>
@@ -14,6 +15,10 @@
 		</h1>
 		<h3 class="mt-3 text text-center text-lg">A Better Bibliography Generator</h3>
 	</div>
-	<CitationCreationForm />
+
+	<div class="flex flex-row">
+		<CitationFormatSelector />
+		<CitationCreationForm />
+	</div>
 	<CitationListCards />
 </div>
