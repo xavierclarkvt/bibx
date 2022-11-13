@@ -32,13 +32,6 @@ function createCitationlist() {
       update(n => [citation, ...n])
     },
     /**
-     * Remove a citaion from the list 
-     * @param citation the entire citation object you would like to remove from the list
-     */
-		removeCitation: (citation:Citation) => {
-      update(n => n.filter(v => v.uuid !== citation.uuid))
-    },
-    /**
      * Remove a citation from the list using a uuid as the identifier
      * @param uuid the uuid for the citation you'd like to remove from the list
      */

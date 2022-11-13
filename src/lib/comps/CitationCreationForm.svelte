@@ -3,36 +3,26 @@
   Each citation needs to follow the Citation object
 -->
 <script type="ts">
-	import { citationlist } from '$lib/stores';
-	import { Form, Field, Select, ErrorMessage } from 'svelte-forms-lib';
+	import CitationInfoForm from './CitationInfoForm.svelte';
 
-	let modal: any;
-	let formContext: any;
-
-	const formProps = {
-		initialValues: {
-			url: ''
-		},
-		onSubmit: onFormSubmit
-	};
+	let showModal = false;
+	let initialValues: any;
 
 	function onMainbarSubmit(e: Event) {
 		const formData = new FormData(e?.target as HTMLFormElement);
-		// console.log([...formData]); this is how you console.log formdata
 		const data: any = {};
+
+		// TODO: Add code that automatically decides citation type (book, website, newspaper article)
+
 		for (const [key, value] of formData) {
 			data[key] = value;
 		}
 
-		formContext.updateInitialValues({ url: data.itemInput });
+		console.log([...formData]);
+		initialValues = { url: data.itemInput }; //TODO: Don't do this, figure out what the citation type is an
 
-		modal.classList.add('modal-open');
+		showModal = true;
 		(e?.target as HTMLFormElement)?.reset();
-	}
-
-	function onFormSubmit(v: any) {
-		citationlist.addCitation({ ...v, uuid: crypto.randomUUID() });
-		modal.classList.remove('modal-open');
 	}
 </script>
 
@@ -47,37 +37,11 @@
 	<button class="btn btn-primary btn-square text-xl" type="submit"> → </button>
 </form>
 
-<!-- Modal for more info about citation -->
-<div bind:this={modal} class="modal">
-	<div class="modal-box w-11/12 max-w-5xl">
-		<div
-			class="btn btn-sm btn-circle absolute right-2 top-2"
-			on:click={modal.classList.remove('modal-open')}
-		>
-			✕
-		</div>
-
-		<h3 class="text-lg font-bold">More Info Modal</h3>
-
-		<Form bind:context={formContext} {...formProps} class="p-5">
-			<label for="type">Type: </label>
-			<Select name="type" class="select select-bordered">
-				<option />
-				<option>Article</option>
-				<option>Book</option>
-				<option selected>Website</option>
-			</Select>
-			<ErrorMessage name="type" />
-
-			<br class="my-5" />
-
-			<label for="url">URL: </label>
-			<Field name="url" class="input input-bordered" />
-			<ErrorMessage name="url" />
-
-			<div class="modal-action">
-				<button class="btn btn-primary btn-square" type="submit"> ✓ </button>
-			</div>
-		</Form>
-	</div>
-</div>
+{#if showModal}
+	<CitationInfoForm
+		{initialValues}
+		on:setShowFalse={() => {
+			showModal = false;
+		}}
+	/>
+{/if}
