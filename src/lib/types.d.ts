@@ -2,7 +2,8 @@
  * An object of bibliography types 
  */
 export type Citation = {
-  uuid:string,
+  uuid: string, 
+  formattedString: string,
   [key:string]: unknown,
 };
 

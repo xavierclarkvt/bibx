@@ -2,12 +2,9 @@
   Rendering for the citation cards
   All citations should go through a formatter before being displayed
   Also contains the button to reset the citationList to empty
-  TODO: Citations should be in alphabetical order 
-  (^^^ CHECK WITH PERDUE OWL TO MAKE SURE THIS IS CORRECT ^^^)
 -->
 <script type="ts">
-	import { citationlist, currentCitationFormat } from '$lib/stores';
-	import { formatters } from '$lib/formatters';
+	import { citationlist } from '$lib/stores';
 	import type { Citation } from '$lib/types';
 	import CitationInfoForm from './CitationInfoForm.svelte';
 
@@ -33,13 +30,13 @@
 	{/if}
 	<div class="flex justify-between items-center w-[60vw] mt-5 bg-base-100">
 		<div>
-			<!-- delete containing div when you delete the <pre> -->
-			<p>{formatters[$currentCitationFormat](citation)}</p>
+			<!-- TODO: delete containing div when you delete the <pre> -->
+			<p>{citation.formattedString}</p>
 			<pre class="text-xs text-gray-400">{JSON.stringify(citation)}</pre>
 		</div>
-		<div>
+		<div class="flex flex-nowrap">
 			<button
-				class="btn btn-xs btn-primary rounded-btn btn-outline text-error-content"
+				class="btn btn-xs btn-primary rounded-btn btn-outline text-error-content mr-1"
 				on:click={() => editCitation(citation)}
 			>
 				edit

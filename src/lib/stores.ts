@@ -3,6 +3,8 @@
  */
 import {writable} from 'svelte/store'; 
 import type { Citation, FormatType } from './types';
+import { formatters } from '$lib/formatters';
+
 
 // current citation format, must be one of the ones listed in FormatTypes
 export const currentCitationFormat = writable(
@@ -26,10 +28,11 @@ function createCitationlist() {
 		subscribe,
     /**
      * Add new citation to list
+     * Also sorts the citations by alphabetical order of the formatted citation strings
      * @param citation the citation object you'd like to add
      */
     addCitation: (citation:Citation) => {
-      update(n => [citation, ...n])
+      update(n => [citation, ...n].sort((a,b) => a.formattedString.localeCompare(b.formattedString)))
     },
     /**
      * Remove a citation from the list using a uuid as the identifier
@@ -37,6 +40,16 @@ function createCitationlist() {
      */
     removeCitationByUUID: (uuid:string) => {
       update(n => n.filter(v => v.uuid !== uuid))
+    },
+    /**
+     * change the formatString for all citations to match the a given citation format
+     * since order may end up being different with a different format, sort all of the citations
+     * @param format the format that you would like each citation's formatString to have
+     */
+    changeFormat: (format:FormatType) => {
+      update(n => n.map((a: Citation) => {return {...a, formattedString: formatters[format](a)}})
+                    .sort((a,b) => a.formattedString.localeCompare(b.formattedString))
+      )
     },
     /**
      * Reset the Citation state to empty
@@ -55,7 +68,7 @@ if (typeof localStorage !== 'undefined') {
   })
 
   currentCitationFormat.subscribe(v => {
-    console.log("citationFormat: ", v)
+    citationlist.changeFormat(v); //make sure format change is reflected in citationlist
     localStorage.setItem('citationFormat', v)
   })
 }

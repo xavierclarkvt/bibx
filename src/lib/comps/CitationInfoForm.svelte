@@ -4,8 +4,9 @@
 -->
 <script type="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { citationlist } from '$lib/stores';
 	import { Form, Field, Select, ErrorMessage } from 'svelte-forms-lib';
+	import { citationlist, currentCitationFormat } from '$lib/stores';
+	import { formatters } from '$lib/formatters';
 	import type { Citation } from '$lib/types';
 
 	export let initialValues = { url: '' };
@@ -31,7 +32,11 @@
 		// this happens when editing a citation (uuid comes in from initialValues)
 		if (v.uuid) citationlist.removeCitationByUUID(v.uuid);
 
-		citationlist.addCitation({ ...v, uuid: crypto.randomUUID() });
+		citationlist.addCitation({
+			...v,
+			formattedString: formatters[$currentCitationFormat](v),
+			uuid: crypto.randomUUID()
+		});
 		setShowFalse();
 	}
 
