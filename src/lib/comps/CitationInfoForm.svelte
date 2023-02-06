@@ -69,6 +69,12 @@
 			<Field name="url" class="input input-bordered" />
 			<ErrorMessage name="url" />
 
+			<br class="my-5" />
+			<label for="date-cited"> Date Cited: </label>
+			<Field name="date-cited" type="date">
+
+			</Field>
+
 			<div class="modal-action">
 				<button class="btn btn-primary btn-square" type="submit"> ✓ </button>
 			</div>
