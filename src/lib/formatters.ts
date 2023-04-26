@@ -10,7 +10,9 @@ import type { Citation } from '$lib/types';
  * @returns your formatted MLA citation (as a string)
  */
 function mlaFormatter(citation: Citation): string {
-  return String(citation.url); //should make sure the value will be string
+  // this is teh next step of the puzzle :)
+  // let result = '';
+  return String(citation.location); //should make sure the value will be string
 }
 
 /** this is the big formatter JSON object that you'll use to access the individual formatters */

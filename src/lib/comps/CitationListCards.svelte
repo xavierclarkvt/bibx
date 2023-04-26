@@ -29,12 +29,14 @@
 		<hr class="mt-5 mx-auto w-[60vw] border-1 border-dashed border-neutral-content" />
 	{/if}
 	<div class="flex justify-between items-center w-[60vw] mt-5 bg-base-100">
-		<div>
+		<div class="max-w-[80%] break-words">
 			<!-- TODO: delete containing div when you delete the <pre> -->
-			<p>{citation.formattedString}</p>
-			<pre class="text-xs text-gray-400">{JSON.stringify(citation)}</pre>
+			<p style="text-indent: -1em; padding-left: 1em;">
+				{citation.formattedString}
+			</p>
+			<pre class="break-words text-xs text-gray-400">{JSON.stringify(citation, null, 2)}</pre>
 		</div>
-		<div class="flex flex-nowrap">
+		<div class="flex flex-nowrap max-w-[20%]">
 			<!-- COPY BUTTON -->
 			<div id="copyTooltip{i}" class="tooltip" data-tip="Copy to Clipboard">
 				<button

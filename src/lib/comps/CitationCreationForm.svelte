@@ -14,12 +14,20 @@
 
 		// TODO: Add code that automatically decides citation type (book, website, newspaper article)
 
-		// for (const [key, value] of formData) {
-		// 	data[key] = value;
-		// }
-		// console.log([...formData]);
-
-		initialValues = { url: [...formData][0][1] }; //TODO: Don't do this, figure out what the citation type is an
+		initialValues = {
+			type: 'Website', //TODO: Don't do this, figure out what the citation type is an
+			title: '',
+			author_first: '',
+			author_last: '',
+			publisher: '',
+			container_title: '',
+			misc_contr: '',
+			number: '',
+			version: '',
+			pub_date: '',
+			accessed_date: new Date().toJSON().slice(0, 10),
+			location: [...formData][0][1]
+		};
 
 		showModal = true;
 		(e?.target as HTMLFormElement)?.reset();
