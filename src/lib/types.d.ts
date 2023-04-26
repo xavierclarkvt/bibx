@@ -4,7 +4,7 @@
 export type Citation = {
   uuid: string, 
   formattedString: string,
-  [key:string]: unknown,
+  [key:string]: string,
 };
 
 /**

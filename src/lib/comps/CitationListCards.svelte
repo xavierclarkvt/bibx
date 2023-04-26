@@ -32,9 +32,9 @@
 		<div class="max-w-[80%] break-words">
 			<!-- TODO: delete containing div when you delete the <pre> -->
 			<p style="text-indent: -1em; padding-left: 1em;">
-				{citation.formattedString}
+				{@html citation.formattedString}
 			</p>
-			<pre class="break-words text-xs text-gray-400">{JSON.stringify(citation, null, 2)}</pre>
+			<!-- <pre class="break-words text-xs text-gray-400">{JSON.stringify(citation, null, 2)}</pre> -->
 		</div>
 		<div class="flex flex-nowrap max-w-[20%]">
 			<!-- COPY BUTTON -->
