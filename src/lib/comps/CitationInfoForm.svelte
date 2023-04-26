@@ -164,7 +164,7 @@
 					<div class="basis-1/12" />
 					<label for="container_title">Title of Container: </label>
 					<Field name="container_title" class="input input-bordered grow" />
-					<div class="basis-2 tooltip tooltip-info tooltip-right" data-tip="TODO:">
+					<div class="basis-2 tooltip tooltip-info tooltip-left" data-tip="TODO:">
 						<svg class="w-4 h-4 fill-current">
 							<use href="icons/circle-info.svg#icon" />
 						</svg>
@@ -175,7 +175,7 @@
 					<div class="basis-1/12" />
 					<label for="misc_contr">Other Contributors: </label>
 					<Field name="misc_contr" class="input input-bordered grow" />
-					<div class="basis-2 tooltip tooltip-info tooltip-left" data-tip="TODO:">
+					<div class="basis-2 tooltip tooltip-info tooltip-right" data-tip="TODO:">
 						<svg class="w-4 h-4 fill-current">
 							<use href="icons/circle-info.svg#icon" />
 						</svg>
