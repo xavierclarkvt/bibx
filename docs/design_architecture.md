@@ -12,7 +12,11 @@ BibX’s UI is minimalist in design and consists of a single home page with two 
 
 The home page, see Figure 1, consists of text-entry box prompting the user to enter a URL or article title, or an identifying attribute from a book like ISBN or the title. On the left and right of the text-entry box is a drop-down menu indicating which citation style to choose and enter button to start the search. 
 
+<img width="742" alt="image" src="https://user-images.githubusercontent.com/70333748/236889653-b7ec4c93-2301-40c7-8bd9-6e27207972df.png">
+  
 After pressing the enter, the user is presented with a modal window (see Figure 2) with a drop-down menu that asks the user to specify what medium the source they are siting is; a website or a book for example, along with text-entry and date picker option for all of the information needed to cite in the chosen style.
+
+<img width="764" alt="image" src="https://user-images.githubusercontent.com/70333748/236889787-a95922b2-ef32-479a-82bb-c065155c7037.png">
 
 After the citation entry is finished (or saved for later editing), the source will appear on the home screen with a copy-and-paste, edit citation, and delete button, see the bottom portion of Figure 1. 
 
@@ -20,6 +24,8 @@ After the citation entry is finished (or saved for later editing), the source wi
 
 There are four main Svelte scripts that work together and drive the system. Figure 3 is a simplified view of BibX’s system design.
 
+<img width="414" alt="image" src="https://user-images.githubusercontent.com/70333748/236889958-78279cf7-cd5b-4da6-997f-7ad8f978b676.png">
+  
 ## MainForm:
 This script contains the main text-entry box in the middle of Figure 1 and the citation style drop down. It takes the aforementioned URL, article title, etc., and uses that to give the citation a start in for the next page. 
 
